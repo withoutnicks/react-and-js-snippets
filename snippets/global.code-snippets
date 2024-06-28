@@ -119,7 +119,7 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "afb",
     "body": "(${1:arguments}) => {\n\t${0}\n}",
-    "description": "arrow function with body (ES6)"
+    "description": "arrow function with body"
   },
   /*
    * 🚧 - Object
@@ -181,23 +181,29 @@
   /*
    * 📚 - Modules
    */
-  "export default (ES6)": {
+  "export default": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "exd",
     "body": "export default ${0}",
     "description": "export default"
   },
-  "import module (ES6)": {
+  "import module": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "imp",
     "body": "import { ${1:moduleName} } from '${2:module}'",
-    "description": "import module (ES6)"
+    "description": "import module"
   },
-  "import module as (ES6)": {
+  "import module as": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "imd",
     "body": "import ${1:moduleName} from '${3:module}'",
-    "description": "import module as (ES6)"
+    "description": "import module as"
+  },
+  "import react": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "imr",
+    "body": "import React from 'react'",
+    "description": "import react"
   },
   "import css": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",

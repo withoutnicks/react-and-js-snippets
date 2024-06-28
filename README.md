@@ -10,13 +10,13 @@ Collection of snippets for Javascript, Typescript, React with JSX and TSX.
 - [Components](#components)
 - [Hooks](#hooks)
 - [Console](#console)
+- [Modules](#modules)
 - [Control](#control)
 - [Functions](#functions)
 - [Object](#object)
 - [Types](#types)
 - [Iterables](#iterables)
 - [Returning values](#returning-values)
-- [Modules](#modules)
 - [Timers](#timers)
 
 ### Global Snippets
@@ -243,22 +243,28 @@ return value
 
 ### Modules
 
-#### `exd` - Export Default (ES6)
+#### `exd` - Export Default
 
 ```javascript
 export default value
 ```
 
-#### `imp` - Import Module (ES6)
+#### `imp` - Import Module
 
 ```javascript
 import { moduleName } from "module"
 ```
 
-#### `imd` - Import Module As (ES6)
+#### `imd` - Import Module As
 
 ```javascript
 import moduleName from "module"
+```
+
+#### `imr` - Import React
+
+```javascript
+import React from "react"
 ```
 
 #### `impcss` - Import CSS
@@ -369,6 +375,30 @@ const Component = () => {
 }
 
 export default Component
+```
+
+#### `tsra` - Typescript React Arrow Functional Component Export
+
+```javascript
+type Props = {}
+
+const Component = (props: Props) => {
+  return <>{/* your code */}</>
+}
+
+export default Component
+```
+
+#### `tsrad` - Typescript React Arrow Functional Component Default Export
+
+```javascript
+type Props = {}
+
+const test = (props: Props) => {
+  return <>{/* your code */}</>
+}
+
+export default test
 ```
 
 #### `lazy` - Lazy Import Snippet

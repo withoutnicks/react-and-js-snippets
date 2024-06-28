@@ -70,6 +70,40 @@
     ],
     "description": "react arrow component with default export"
   },
+  "ts arrow fc default export": {
+    "prefix": "tsra",
+    "scope": "typescriptreact",
+    "body": [
+      "type Props = {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
+      "  return (",
+      "    <>",
+      "      ${1:first}",
+      "    </>",
+      "  )",
+      "}"
+    ],
+    "description": "arrow function component for ts",
+  },
+  "typesscript arrow fc": {
+    "prefix": "tsrad",
+    "scope": "typescriptreact",
+    "body": [
+      "type Props = {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
+      "  return (",
+      "    <>",
+      "      ${1:first}",
+      "    </>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "creates arrow function component for ts",
+  },
   "lazy import snippet": {
     "prefix": "lazy",
     "scope": "javascriptreact,typescriptreact",
