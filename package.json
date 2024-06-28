@@ -24,5 +24,6 @@
         "path": "./snippets/react.code-snippets"
       }
     ]
-  }
+  },
+  "license":"LICENSE.txt"
 }
