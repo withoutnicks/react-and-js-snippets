@@ -1,15 +1,18 @@
 {
-  "name": "wts-react-and-js-snippets",
+  "name": "wts-react-js-snippets",
   "displayName": "ES6 - React and Javascript Snippets",
   "description": "Collection of snippets for Javascript, Typescript, React with JSX and TSX. Using single quotes",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.90.0"
   },
+  "icon": "image.png",
   "author": {"name": "withoutnicks"},
+  "publisher": "wts-dev",
   "categories": [
     "Snippets"
   ],
+  "repository": {"type": "git", "url": "https://github.com/withoutnicks/react-and-js-snippets?tab=readme-ov-file"},
   "contributes": {
     "snippets": [
       {
