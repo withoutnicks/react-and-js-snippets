@@ -1,0 +1,262 @@
+{
+  /*
+   * 🌎 - Global
+   */
+  "let statement": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "l",
+    "body": "let ${0:name}",
+    "description": "let statement"
+  },
+  "let assignment": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "l=",
+    "body": "let ${1:name} = ${2:value}",
+    "description": "let assignment"
+  },
+  "destructuring let assignment": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "dl=",
+    "body": "let {${1:name}} = ${2:value}",
+    "description": "destructuring let assignment"
+  },
+  "const statement": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "co",
+    "body": "const ${0:name}",
+    "description": "const statement"
+  },
+  "const assignment": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "co=",
+    "body": "const ${1:name} = ${2:value}",
+    "description": "const assignment"
+  },
+  "destructuring const assignment": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "dco=",
+    "body": "const {${1:name}} = ${2:value}",
+    "description": "destructuring const assignment"
+  },
+  /*
+   * 🔑 - Control
+   */
+  "if statement": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "if",
+    "body": "if (${1:condition}) {\n\t${0}\n}",
+    "description": "if statement"
+  },
+  "else statement": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "el",
+    "body": "else {\n\t${0}\n}",
+    "description": "else statement"
+  },
+  "if/else statement": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ifel",
+    "body": "if (${1:condition}) {\n\t${0}\n} else {\n\t\n}",
+    "description": "if/else statement"
+  },
+  "else if statement": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "elif",
+    "body": "else if (${1:condition}) {\n\t${0}\n}",
+    "description": "else if statement"
+  },
+  "ternary operator": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ter",
+    "body": "${1:condition} ? ${2:expression} : ${3:expression}",
+    "description": "ternary operator"
+  },
+  "try/catch": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "tc",
+    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n}",
+    "description": "try/catch"
+  },
+  "try/finally": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "tf",
+    "body": "try {\n\t${0}\n} finally {\n\t\n}",
+    "description": "try/finally"
+  },
+  "try/catch/finally": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "tcf",
+    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n} finally {\n\t\n}",
+    "description": "try/catch/finally"
+  },
+  "switch case": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "sw",
+    "body": "switch (${1:expr}) {\n\tcase ${2:value}:\n\t\t${3}\n\t\tbreak \n\tdefault:\n\t\t${4}\n}",
+    "description": "switch case"
+  },
+  /*
+   * 👾 - Functions 
+   */
+  "arrow function": {
+    "prefix": "arrow",
+    "body": ["const ${1:name} = (${2}) => {", "\t$0", "};"],
+    "description": "Arrow function"
+  },
+  "anonymous function": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "f",
+    "body": "function (${1:arguments}) {\n\t${0}\n}",
+    "description": "anonymous function"
+  },
+  "named function": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "fn",
+    "body": "function ${1:name}(${2:arguments}) {\n\t${0}\n}",
+    "description": "named function"
+  },
+  "arrow function with body (ES6)": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "afb",
+    "body": "(${1:arguments}) => {\n\t${0}\n}",
+    "description": "arrow function with body (ES6)"
+  },
+  /*
+   * 🚧 - Object
+   */
+  "destructure object": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "deso",
+    "body": "const { ${2} } = ${1:object}",
+    "description": "destructure object"
+  },
+  "destructure array": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "desa",
+    "body": "const [${2}] = ${1:array}",
+    "description": "destructure array"
+  },
+  /*
+   * ➰ - Iterables 
+   */
+  "forEach loop": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "fe",
+    "body": "${1}.forEach((${2:item}) => {\n\t${0}\n})",
+    "description": "forEach loop"
+  },
+  "map": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "map",
+    "body": "${1}.map((${2:item}) => {\n\t${0}\n})",
+    "description": "map"
+  },
+  "reduce": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "reduce",
+    "body": "${1}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial})",
+    "description": "reduce"
+  },
+  "filter": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "filter",
+    "body": "${1}.filter(${2:item} => {\n\t${0}\n})",
+    "description": "filter"
+  },
+  "find": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "find",
+    "body": "${1}.find(${2:item} => {\n\t${0}\n})",
+    "description": "find"
+  },
+  /*
+   * 💱 - Returning values 
+   */
+  "return": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "r",
+    "body": "return ${0}",
+    "description": "return"
+  },
+  /*
+   * 📚 - Modules
+   */
+  "export default (ES6)": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "exd",
+    "body": "export default ${0}",
+    "description": "export default"
+  },
+  "import module (ES6)": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "imp",
+    "body": "import { ${1:moduleName} } from '${2:module}'",
+    "description": "import module (ES6)"
+  },
+  "import module as (ES6)": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "imd",
+    "body": "import ${1:moduleName} from '${3:module}'",
+    "description": "import module as (ES6)"
+  },
+  "import css": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "imcss",
+    "body": "import './${0:styles}.css'",
+    "description": "import css module"
+  },
+  "import css module": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "imcssmd",
+    "body": "import styles from './${0:styles}.module.css'",
+    "description": "import css module"
+  },
+  /*
+   * 💻 - Console
+   */
+  "console.log": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "cl",
+    "body": "console.log(${0})",
+    "description": "console.log"
+  },
+  "console.error": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ce",
+    "body": "console.error(${0})",
+    "description": "console.error"
+  },
+  "console.warn": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "cw",
+    "body": "console.warn(${0})",
+    "description": "console.warn"
+  },
+  "console.table": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ct",
+    "body": "console.table(${0})",
+    "description": "console.table (It is not very used)"
+  },
+  /*
+   * ⌚ - Timers
+   */
+  "setTimeout": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "st",
+    "body": "setTimeout(() => {\n\t${0}\n}, ${1:delay})",
+    "description": "setTimeout"
+  },
+  "setInterval": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "si",
+    "body": "setInterval(() => {\n\t${0}\n}, ${1:delay})",
+    "description": "setInterval"
+  },
+  "setImmediate": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "sim",
+    "body": "setImmediate(() => {\n\t${0}\n})",
+    "description": "setImmediate"
+  },
+}
