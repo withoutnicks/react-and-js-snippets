@@ -100,7 +100,7 @@
    */
   "arrow function": {
     "prefix": "arrow",
-    "body": ["const ${1:name} = (${2}) => {", "\t$0", "};"],
+    "body": ["const ${1:name} = (${2}) => {", "\t$0", "}"],
     "description": "Arrow function"
   },
   "anonymous function": {

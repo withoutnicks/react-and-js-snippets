@@ -2,7 +2,7 @@
 
 Collection of snippets for Javascript, Typescript, React with JSX and TSX.
 
-> This extension use single quotes
+> This extension uses single quotes and no semicolons
 
 ## Index
 

@@ -1,14 +1,15 @@
 {
   "name": "wts-react-js-snippets",
   "displayName": "ES6 - React and Javascript Snippets",
-  "description": "Collection of snippets for Javascript, Typescript, React with JSX and TSX. Using single quotes",
+  "description": "Collection of snippets for Javascript, React and Typescript",
   "version": "0.1.0",
-  "engines": {
-    "vscode": "^1.90.0"
-  },
   "icon": "image.png",
   "author": {"name": "withoutnicks"},
   "publisher": "wts-dev",
+  "license":"LICENSE.txt",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
   "categories": [
     "Snippets"
   ],
@@ -27,6 +28,5 @@
         "path": "./snippets/react.code-snippets"
       }
     ]
-  },
-  "license":"LICENSE.txt"
+  }
 }
