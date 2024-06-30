@@ -2,13 +2,13 @@
   "name": "wts-react-js-snippets",
   "displayName": "ES6 - React and Javascript Snippets",
   "description": "Collection of snippets for Javascript, React and Typescript",
-  "version": "0.1.1",
-  "icon": "image.png",
+  "version": "1.0.0",
+  "icon": "icon.png",
   "author": {"name": "withoutnicks"},
   "publisher": "wts-dev",
   "license":"LICENSE.txt",
   "engines": {
-    "vscode": "1.90.0"
+    "vscode": "^1.90.0"
   },
   "categories": [
     "Snippets"
