@@ -8,7 +8,7 @@
   // 🧱 - Components
   "react fc export": {
     "prefix": "rf",
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "body": [
       "export function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}() {",
       "\treturn (",
@@ -23,7 +23,7 @@
   },
   "react fc default export": {
     "prefix": "rfd",
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}() {",
       "\treturn (",
@@ -40,7 +40,7 @@
   },
   "react arrow fc export": {
     "prefix": "ra",
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "export const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = () => {",
       "\treturn (",
@@ -55,7 +55,7 @@
   },
   "react arrow fc default export": {
     "prefix": "rad",
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = () => {",
       "\treturn (",
@@ -72,7 +72,7 @@
   },
   "ts arrow fc default export": {
     "prefix": "tsra",
-    "scope": "typescriptreact",
+    "scope": "typescript, typescriptreact",
     "body": [
       "type Props = {}",
       "",
@@ -84,11 +84,11 @@
       "  )",
       "}"
     ],
-    "description": "arrow function component for ts",
+    "description": "arrow function component for ts"
   },
   "typesscript arrow fc": {
     "prefix": "tsrad",
-    "scope": "typescriptreact",
+    "scope": "typescript, typescriptreact",
     "body": [
       "type Props = {}",
       "",
@@ -102,20 +102,18 @@
       "",
       "export default ${1:${TM_FILENAME_BASE}}"
     ],
-    "description": "creates arrow function component for ts",
+    "description": "creates arrow function component for ts"
   },
   "lazy import snippet": {
     "prefix": "lazy",
-    "scope": "javascriptreact,typescriptreact",
-    "body": [
-      "const ${1:Component} = lazy(() => import('${2:./Component}'))"
-    ],
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": ["const ${1:Component} = lazy(() => import('${2:./Component}'))"],
     "description": "lazy component import"
   },
   // 🈹 - Hooks
   "useState Snippet": {
     "prefix": ["useState", "us"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript, typescript, javascriptreact,typescriptreact",
     "body": [
       "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState$3(${2:initialState})"
     ],
@@ -123,7 +121,7 @@
   },
   "useState lazy init Snippet": {
     "prefix": ["useStateLazy", "usl"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState${3}(() => ${2:fn})"
     ],
@@ -131,7 +129,7 @@
   },
   "useReducer Snippet": {
     "prefix": ["useReducer", "ured"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "const [state, dispatch] = useReducer$3(${2:reducer}, ${1:initialState})"
     ],
@@ -139,19 +137,19 @@
   },
   "useEffect Snippet": {
     "prefix": ["useEffect", "ue"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["useEffect$3(() => {", "\t${1}", "}, [${2}])"],
     "description": "accepts a function that contains imperative, possibly effectful code."
   },
   "useContext Snippet": {
     "prefix": ["useContext", "ucx"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["const ${1:context} = useContext$3(${2:Context})"],
     "description": "accepts a context object (the value returned from React.createContext) and returns the current context value for that context."
   },
   "useCallback Snippet": {
     "prefix": ["useCallback", "uc"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "const ${1:memoizedCallback} = useCallback$4(${2:callbackFn}, [${3}])"
     ],
@@ -159,20 +157,20 @@
   },
   "useMemo Snippet": {
     "prefix": ["useMemo", "um"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["const ${1:memoizedValue} = useMemo(() => ${2:value}, [${3}])"],
     "description": "pass a “create” function and an array of dependencies. useMemo will only recompute the memoized value when one of the dependencies has changed."
   },
   "useRef Snippet": {
     "prefix": ["useRef", "uref"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["const ${1:ref} = useRef(${2:initialValue})"],
     "description": "useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue)."
   },
   "useId Snippet": {
     "prefix": ["useId", "uid"],
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["const ${1:id} = useId$2()"],
     "description": "useId returns a unique id that persists across renders. Useful for aria attributes and labels."
-  },
+  }
 }
