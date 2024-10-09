@@ -344,7 +344,7 @@ import PropTypes from "prop-types"
 #### `rf` - React Functional Component Export
 
 ```javascript
-export function Component() {
+export function Component () {
   return <>{/* your code */}</>
 }
 ```
@@ -352,7 +352,7 @@ export function Component() {
 #### `rfd` - React Functional Component Default Export
 
 ```javascript
-function Component() {
+function Component () {
   return <>{/* your code */}</>
 }
 
@@ -379,10 +379,10 @@ export default Component
 
 #### `tsra` - Typescript React Arrow Functional Component Export
 
-```javascript
-type Props = {}
+```typescript
+interface Props {}
 
-const Component = (props: Props) => {
+const Component = ({}: Props) => {
   return <>{/* your code */}</>
 }
 
@@ -391,14 +391,14 @@ export default Component
 
 #### `tsrad` - Typescript React Arrow Functional Component Default Export
 
-```javascript
-type Props = {}
+```typescript
+interface Props {}
 
-const test = (props: Props) => {
+const Component = ({}: Props) => {
   return <>{/* your code */}</>
 }
 
-export default test
+export default Component
 ```
 
 #### `lazy` - Lazy Import Snippet

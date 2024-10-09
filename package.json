@@ -2,7 +2,7 @@
   "name": "wts-react-js-snippets",
   "displayName": "ES6 - React and Javascript Snippets",
   "description": "Collection of snippets for Javascript, React and Typescript",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "icon": "icon.png",
   "author": {"name": "withoutnicks"},
   "publisher": "wts-dev",
