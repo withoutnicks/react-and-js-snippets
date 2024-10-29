@@ -99,6 +99,7 @@
 			"\treturn (",
 			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
 			"\t)",
+			"}",
 			"",
 			"export default ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}"
 		],
@@ -112,6 +113,7 @@
 			"\treturn (",
 			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
 			"\t)",
+			"}",
 			"",
 			"export default ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}"
 		],
