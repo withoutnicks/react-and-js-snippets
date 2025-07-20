@@ -1,0 +1,35 @@
+{
+  /*
+   * 🟦 - TypeScript
+   */
+  "Type declaration": {
+    "prefix": "tst",
+    "scope": "typescript,typescriptreact",
+    "body": [
+      "type ${1:Name} = {",
+      "\t$0",
+      "}"
+    ],
+    "description": "type declaration"
+  },
+  "Interface declaration": {
+    "prefix": "tsi",
+    "scope": "typescript,typescriptreact",
+    "body": [
+      "interface ${1:Name} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "interface declaration"
+  },
+  "Enum declaration": {
+    "prefix": "tsen",
+    "scope": "typescript,typescriptreact",
+    "body": [
+      "enum ${1:Name} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "enum declaration"
+  }
+}

@@ -1,25 +1,27 @@
 # 🏂🏻 - React and Javascript Snippets
 
-Collection of snippets for Javascript, Typescript, React with JSX and TSX.
+> Uses **single quotes** and **no semicolons** by default
 
-> This extension uses single quotes and no semicolons
+Boost your productivity with a clean and modern set of **snippets** for:
 
-## Index
+- ![JavaScript Badge](https://img.shields.io/badge/JavaScript-fff?logo=javascript&logoColor=#fef08a&style=flat)
+- ![TypeScript Badge](https://img.shields.io/badge/TypeScript-fff?logo=typescript&logoColor=#3b82f6&style=flat)
+- ![React Badge](https://img.shields.io/badge/React-fff?logo=react&logoColor=#0ea5e9&style=flat)
 
-- [Global](#global)
+
+## Snippets Index
+
 - [Components](#components)
 - [Hooks](#hooks)
-- [Console](#console)
-- [Modules](#modules)
-- [Control](#control)
 - [Functions](#functions)
 - [Object](#object)
 - [Types](#types)
-- [Iterables](#iterables)
-- [Returning values](#returning-values)
-- [Timers](#timers)
+- [Utilities](#utilities)
+- ...
 
-### Global Snippets
+---
+
+### Utilities
 
 #### `l` - Let Statement
 
@@ -339,6 +341,30 @@ setImmediate(() => {
 import PropTypes from "prop-types"
 ```
 
+### `tst`- Type declaration
+
+```typescript
+type Name = {
+  // your code
+}
+```
+
+### `tsi`- Interface declaration
+
+```typescript
+interface Name {
+  // your code
+}
+```
+
+### `tsen`- Enum declaration
+
+```typescript
+enum Name {
+  // your code
+}
+```
+
 ### Components
 
 #### `rf` - React Functional Component Export
@@ -465,9 +491,17 @@ const ref = useRef(initialValue)
 const id = useId()
 ```
 
-## Credits
+## 🙌 Credits
 
-This extension is born from my taste for 2 more extensions, Is a fusion of both, more snippets and content in:
+Inspired by:
 
-- [@nathanchapman](https://github.com/nathanchapman/vscode-javascript-snippets) 💛
-- [@ymulenll](https://github.com/ymulenll/react17plus-snippets) 💙
+- 💛 [@nathanchapman](https://github.com/nathanchapman/vscode-javascript-snippets)
+- 💙 [@ymulenll](https://github.com/ymulenll/react17plus-snippets)
+
+---
+
+## 📌 Install
+
+Search **“React, TypeScript & Next.js Snippets”** in the VS Code marketplace or [click here](https://marketplace.visualstudio.com/).
+
+---
