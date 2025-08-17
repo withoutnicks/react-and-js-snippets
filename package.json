@@ -1,7 +1,7 @@
 {
   "name": "wts-react-js-snippets",
-  "displayName": "React, TypeScript & Next.js Snippets",
-  "description": "Collection of snippets for React, TypeScript, Next.js, and JavaScript. Boost your productivity with modern shortcuts for web development.",
+  "displayName": "React, TypeScript & Javascript Snippets",
+  "description": "Collection of snippets for React, TypeScript, Javascript, and JavaScript. Boost your productivity with modern shortcuts for web development.",
   "version": "1.3.0",
   "icon": "icon.png",
   "author": {
@@ -18,7 +18,6 @@
   "keywords": [
     "react",
     "typescript",
-    "nextjs",
     "snippets",
     "javascript",
     "web",
