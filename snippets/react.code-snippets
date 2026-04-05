@@ -1,231 +1,329 @@
 {
-	// 🔒 - Types
-	"import prop-types": {
-		"prefix": "imt",
-		"body": "import PropTypes from 'prop-types'",
-		"description": "runtime type checking for React props and similar objects"
-	},
-	// 🧑‍🎤 - Components
-	"react fc export": {
-		"prefix": "rf",
-		"scope": "javascript, typescript, javascriptreact, typescriptreact",
-		"body": [
-			"export function ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} () {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}",
-			""
-		],
-		"description": "react functional component"
-	},
-	"react fc default export": {
-		"prefix": "rfd",
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"function ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} () {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}",
-			"",
-			"export default ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}",
-			""
-		],
-		"description": "react functional component with default export"
-	},
-	"react arrow fc export": {
-		"prefix": "ra",
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"export const ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} = () => {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}",
-			""
-		],
-		"description": "react arrow component with named export"
-	},
-	"react arrow fc default export": {
-		"prefix": "rad",
-		"scope": "javascript, javascriptreact",
-		"body": [
-			"const ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} = () => {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}",
-			"",
-			"export default ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}",
-			""
-		],
-		"description": "react arrow component with default export"
-	},
-	"ts arrow fc export": {
-		"prefix": "tsra",
-		"scope": "typescript, typescriptreact",
-		"body": [
-			"interface Props {${1}}",
-			"",
-			"export const ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} = ({${2}}: Props) => {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}"
-		],
-		"description": "creates arrow function component for ts"
-	},
-	"ts fc export": {
-		"prefix": "tsrf",
-		"scope": "typescript, typescriptreact",
-		"body": [
-			"export function ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} () {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}"
-		],
-		"description": "creates function component for ts"
-	},
-	"ts arrow fc default export": {
-		"prefix": "tsrad",
-		"scope": "typescript, typescriptreact",
-		"body": [
-			"interface Props {${1}}",
-			"",
-			"const ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} = ({${2}}: Props) => {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}",
-			"",
-			"export default ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}"
-		],
-		"description": "creates arrow function component for ts"
-	},
-	"ts fc default export": {
-		"prefix": "tsrfd",
-		"scope": "typescript, typescriptreact",
-		"body": [
-			"function ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/} () {",
-			"\treturn (",
-			"\t\t<div>${0:${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}}</div>",
-			"\t)",
-			"}",
-			"",
-			"export default ${TM_FILENAME_BASE/(.*)/${0:/capitalize}/}"
-		],
-		"description": "creates function component for ts"
-	},
-	"lazy import snippet": {
-		"prefix": "lazy",
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const ${1:Component} = lazy(() => import('${2:./Component}'))"
-		],
-		"description": "lazy component import"
-	},
-	// 🎵 - Hooks
-	"useState Snippet": {
-		"prefix": [
-			"useState",
-			"us"
-		],
-		"scope": "javascript, typescript, javascriptreact,typescriptreact",
-		"body": [
-			"const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState$3(${2:initialState})"
-		],
-		"description": "returns a stateful value, and a function to update it."
-	},
-	"useState lazy init Snippet": {
-		"prefix": [
-			"useStateLazy",
-			"usl"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState${3}(() => ${2:fn})"
-		],
-		"description": "returns a stateful value, and a function to update it."
-	},
-	"useReducer Snippet": {
-		"prefix": [
-			"useReducer",
-			"ured"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const [state, dispatch] = useReducer$3(${2:reducer}, ${1:initialState})"
-		],
-		"description": "an alternative to useState."
-	},
-	"useEffect Snippet": {
-		"prefix": [
-			"useEffect",
-			"ue"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"useEffect$3(() => {",
-			"\t${1}",
-			"}, [${2}])"
-		],
-		"description": "accepts a function that contains imperative, possibly effectful code."
-	},
-	"useContext Snippet": {
-		"prefix": [
-			"useContext",
-			"ucx"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const ${1:context} = useContext$3(${2:Context})"
-		],
-		"description": "accepts a context object (the value returned from React.createContext) and returns the current context value for that context."
-	},
-	"useCallback Snippet": {
-		"prefix": [
-			"useCallback",
-			"uc"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const ${1:memoizedCallback} = useCallback$4(${2:callbackFn}, [${3}])"
-		],
-		"description": "pass an inline callback and an array of dependencies. useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed."
-	},
-	"useMemo Snippet": {
-		"prefix": [
-			"useMemo",
-			"um"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const ${1:memoizedValue} = useMemo(() => ${2:value}, [${3}])"
-		],
-		"description": "pass a “create” function and an array of dependencies. useMemo will only recompute the memoized value when one of the dependencies has changed."
-	},
-	"useRef Snippet": {
-		"prefix": [
-			"useRef",
-			"uref"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const ${1:ref} = useRef(${2:initialValue})"
-		],
-		"description": "useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue)."
-	},
-	"useId Snippet": {
-		"prefix": [
-			"useId",
-			"uid"
-		],
-		"scope": "javascript,typescript,javascriptreact,typescriptreact",
-		"body": [
-			"const ${1:id} = useId$2()"
-		],
-		"description": "useId returns a unique id that persists across renders. Useful for aria attributes and labels."
-	}
+  /*
+   * React Imports
+   */
+  "import prop-types": {
+    "scope": "javascript,javascriptreact",
+    "prefix": [
+      "imt",
+      "impt"
+    ],
+    "body": [
+      "import PropTypes from 'prop-types'"
+    ],
+    "description": "Insert a PropTypes import"
+  },
+  "lazy import": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "lazy",
+    "body": [
+      "const ${1:Component} = lazy(() => import('${0:./Component}'))"
+    ],
+    "description": "Insert a lazy import"
+  },
+
+  /*
+   * React Components
+   */
+  "react function component export": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": [
+      "rf",
+      "rfc"
+    ],
+    "body": [
+      "export function ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}() {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}"
+    ],
+    "description": "Insert a named function component export"
+  },
+  "react function component default export": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": [
+      "rfd",
+      "rfcd"
+    ],
+    "body": [
+      "function ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}() {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}"
+    ],
+    "description": "Insert a default exported function component"
+  },
+  "react arrow component export": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": [
+      "ra",
+      "rafc"
+    ],
+    "body": [
+      "export const ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g} = () => {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}"
+    ],
+    "description": "Insert a named arrow component export"
+  },
+  "react arrow component default export": {
+    "scope": "javascriptreact",
+    "prefix": [
+      "rad",
+      "rafcd"
+    ],
+    "body": [
+      "const ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g} = () => {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}"
+    ],
+    "description": "Insert a default exported arrow component"
+  },
+  "react typed function component export": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "tsrf",
+      "tsfc"
+    ],
+    "body": [
+      "interface Props {",
+      "\t${1}",
+      "}",
+      "",
+      "export function ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}({ ${2} }: Props) {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}"
+    ],
+    "description": "Insert a typed function component export"
+  },
+  "react typed function component default export": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "tsrfd",
+      "tsfcd"
+    ],
+    "body": [
+      "interface Props {",
+      "\t${1}",
+      "}",
+      "",
+      "function ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}({ ${2} }: Props) {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}"
+    ],
+    "description": "Insert a typed function component default export"
+  },
+  "react typed arrow component export": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "tsra",
+      "tsafc"
+    ],
+    "body": [
+      "interface Props {",
+      "\t${1}",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g} = ({ ${2} }: Props) => {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}"
+    ],
+    "description": "Insert a typed arrow component export"
+  },
+  "react typed arrow component default export": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "tsrad",
+      "tsafcd"
+    ],
+    "body": [
+      "interface Props {",
+      "\t${1}",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g} = ({ ${2} }: Props) => {",
+      "\treturn (",
+      "\t\t<div>${0:${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}}</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE/(^|[-_])(\\w)/${2:/upcase}/g}"
+    ],
+    "description": "Insert a typed arrow component default export"
+  },
+
+  /*
+   * React Hooks
+   */
+  "useState": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "us",
+      "useState"
+    ],
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${0:initialState})"
+    ],
+    "description": "Insert a useState declaration"
+  },
+  "useState lazy initializer": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "usl",
+      "useStateLazy"
+    ],
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(() => ${0:initialState})"
+    ],
+    "description": "Insert a useState lazy initializer"
+  },
+  "useReducer": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "ured",
+      "useReducer"
+    ],
+    "body": [
+      "const [state, dispatch] = useReducer(${1:reducer}, ${0:initialState})"
+    ],
+    "description": "Insert a useReducer declaration"
+  },
+  "useEffect": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "ue",
+      "useEffect"
+    ],
+    "body": [
+      "useEffect(() => {",
+      "\t${1}",
+      "}, [${0}])"
+    ],
+    "description": "Insert a useEffect block"
+  },
+  "useLayoutEffect": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "ule",
+      "useLayoutEffect"
+    ],
+    "body": [
+      "useLayoutEffect(() => {",
+      "\t${1}",
+      "}, [${0}])"
+    ],
+    "description": "Insert a useLayoutEffect block"
+  },
+  "useContext": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "ucx",
+      "useContext"
+    ],
+    "body": [
+      "const ${1:context} = useContext(${0:Context})"
+    ],
+    "description": "Insert a useContext declaration"
+  },
+  "useCallback": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "uc",
+      "useCallback"
+    ],
+    "body": [
+      "const ${1:memoizedCallback} = useCallback((${2}) => {",
+      "\t${3}",
+      "}, [${0}])"
+    ],
+    "description": "Insert a useCallback declaration"
+  },
+  "useMemo": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "um",
+      "useMemo"
+    ],
+    "body": [
+      "const ${1:memoizedValue} = useMemo(() => {",
+      "\treturn ${2:value}",
+      "}, [${0}])"
+    ],
+    "description": "Insert a useMemo declaration"
+  },
+  "useRef": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "uref",
+      "useRef"
+    ],
+    "body": [
+      "const ${1:ref} = useRef(${0:null})"
+    ],
+    "description": "Insert a useRef declaration"
+  },
+  "useId": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "uid",
+      "useId"
+    ],
+    "body": [
+      "const ${1:id} = useId()"
+    ],
+    "description": "Insert a useId declaration"
+  },
+  "useTransition": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "utr",
+      "useTransition"
+    ],
+    "body": [
+      "const [isPending, startTransition] = useTransition()"
+    ],
+    "description": "Insert a useTransition declaration"
+  },
+  "useDeferredValue": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "udv",
+      "useDeferredValue"
+    ],
+    "body": [
+      "const deferred${1/(.*)/${1:/capitalize}/} = useDeferredValue(${0:value})"
+    ],
+    "description": "Insert a useDeferredValue declaration"
+  },
+  "useEffectEvent": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "uee",
+      "useEffectEvent"
+    ],
+    "body": [
+      "const ${1:handleEvent} = useEffectEvent((${2:event}) => {",
+      "\t${0}",
+      "})"
+    ],
+    "description": "Insert a useEffectEvent declaration"
+  }
 }

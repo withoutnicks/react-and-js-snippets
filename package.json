@@ -1,14 +1,14 @@
 {
   "name": "wts-react-js-snippets",
   "displayName": "React, Typescript & Javascript Snippets",
-  "description": "Collection of snippets for React, Typescript, and Javascript. Boost your productivity with modern shortcuts for web development.",
-  "version": "1.3.1",
+  "description": "Curated snippets for React, TypeScript, and JavaScript with consistent naming, aliases, and modern React coverage.",
+  "version": "1.4.0",
   "icon": "logo.jpg",
   "author": {
     "name": "withoutnicks"
   },
   "publisher": "wts-dev",
-  "license": "LICENSE.txt",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/withoutnicks/react-and-js-snippets?tab=readme-ov-file"
+    "url": "https://github.com/withoutnicks/react-and-js-snippets"
   },
   "contributes": {
     "snippets": [
@@ -59,9 +59,20 @@
         "path": "./snippets/react.code-snippets"
       },
       {
+        "language": "javascript",
+        "path": "./snippets/react.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/react.code-snippets"
+      },
+      {
         "language": "typescriptreact",
         "path": "./snippets/react.code-snippets"
       }
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2"
   }
 }

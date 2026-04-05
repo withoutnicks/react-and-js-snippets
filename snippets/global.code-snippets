@@ -1,403 +1,375 @@
 {
   /*
-   * 🌎 - Global
+   * Global Utilities
    */
   "let statement": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "l",
     "body": [
       "let ${0:name}"
     ],
-    "description": "let statement"
+    "description": "Insert a let declaration"
   },
   "let assignment": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "l=",
     "body": [
-      "let ${1:name} = ${2:value}"
+      "let ${1:name} = ${0:value}"
     ],
-    "description": "let assignment"
+    "description": "Insert a let assignment"
   },
   "destructuring let assignment": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "dl=",
     "body": [
-      "let {${1:name}} = ${2:value}"
+      "let { ${1:name} } = ${0:value}"
     ],
-    "description": "destructuring let assignment"
-  },
-  "const statement": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "co",
-    "body": [
-      "const ${0:name}"
-    ],
-    "description": "const statement"
+    "description": "Insert a destructuring let assignment"
   },
   "const assignment": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "co=",
-    "body": [
-      "const ${1:name} = ${2:value}"
+    "prefix": [
+      "co",
+      "co="
     ],
-    "description": "const assignment"
+    "body": [
+      "const ${1:name} = ${0:value}"
+    ],
+    "description": "Insert a const assignment"
   },
   "destructuring const assignment": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "dco=",
     "body": [
-      "const {${1:name}} = ${2:value}"
+      "const { ${1:name} } = ${0:value}"
     ],
-    "description": "destructuring const assignment"
+    "description": "Insert a destructuring const assignment"
   },
   /*
-   * 🔑 - Control
+   * Control Flow
    */
   "if statement": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "if",
     "body": [
       "if (${1:condition}) {",
       "\t${0}",
       "}"
     ],
-    "description": "if statement"
+    "description": "Insert an if statement"
   },
   "else statement": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "el",
     "body": [
       "else {",
       "\t${0}",
       "}"
     ],
-    "description": "else statement"
+    "description": "Insert an else statement"
   },
   "if/else statement": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ifel",
     "body": [
       "if (${1:condition}) {",
-      "\t${0}",
+      "\t${2}",
       "} else {",
-      "\t",
+      "\t${0}",
       "}"
     ],
-    "description": "if/else statement"
+    "description": "Insert an if/else statement"
   },
   "else if statement": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "elif",
     "body": [
       "else if (${1:condition}) {",
       "\t${0}",
       "}"
     ],
-    "description": "else if statement"
+    "description": "Insert an else if statement"
   },
   "ternary operator": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ter",
     "body": [
-      "${1:condition} ? ${2:expression} : ${3:expression}"
+      "${1:condition} ? ${2:trueValue} : ${0:falseValue}"
     ],
-    "description": "ternary operator"
+    "description": "Insert a ternary expression"
   },
   "try/catch": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "tc",
     "body": [
       "try {",
+      "\t${2}",
+      "} catch (${1:error}) {",
       "\t${0}",
-      "} catch (${1:err}) {",
-      "\t",
       "}"
     ],
-    "description": "try/catch"
+    "description": "Insert a try/catch block"
   },
   "try/finally": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "tf",
     "body": [
       "try {",
-      "\t${0}",
+      "\t${1}",
       "} finally {",
-      "\t",
+      "\t${0}",
       "}"
     ],
-    "description": "try/finally"
+    "description": "Insert a try/finally block"
   },
   "try/catch/finally": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "tcf",
     "body": [
       "try {",
-      "\t${0}",
-      "} catch (${1:err}) {",
-      "\t",
+      "\t${2}",
+      "} catch (${1:error}) {",
+      "\t${3}",
       "} finally {",
-      "\t",
+      "\t${0}",
       "}"
     ],
-    "description": "try/catch/finally"
+    "description": "Insert a try/catch/finally block"
   },
   "switch case": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "sw",
     "body": [
-      "switch (${1:expr}) {",
-      "\tcase ${2:value}:",
+      "switch (${1:value}) {",
+      "\tcase ${2:caseValue}:",
       "\t\t${3}",
-      "\t\tbreak ",
+      "\t\tbreak",
       "\tdefault:",
-      "\t\t${4}",
+      "\t\t${0}",
       "}"
     ],
-    "description": "switch case"
+    "description": "Insert a switch statement"
   },
   /*
-   * 👾 - Functions
+   * Functions
    */
-  "arrow function": {
+  "arrow function assignment": {
     "prefix": "arrow",
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
-      "const ${1:name} = (${2}) => {",
-      "\t$0",
+      "const ${1:name} = (${2:args}) => {",
+      "\t${0}",
       "}"
     ],
-    "description": "Arrow function"
+    "description": "Insert an arrow function assignment"
   },
   "anonymous function": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "f",
     "body": [
-      "function (${1:arguments}) {",
+      "function (${1:args}) {",
       "\t${0}",
       "}"
     ],
-    "description": "anonymous function"
+    "description": "Insert an anonymous function"
   },
   "named function": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "fn",
     "body": [
-      "function ${1:name}(${2:arguments}) {",
+      "function ${1:name}(${2:args}) {",
       "\t${0}",
       "}"
     ],
-    "description": "named function"
+    "description": "Insert a named function"
   },
-  "arrow function with body (ES6)": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "arrow function expression": {
     "prefix": "afb",
     "body": [
-      "(${1:arguments}) => {",
+      "(${1:args}) => {",
       "\t${0}",
       "}"
     ],
-    "description": "arrow function with body"
+    "description": "Insert an arrow function expression"
+  },
+  "async function": {
+    "prefix": "afn",
+    "body": [
+      "async function ${1:name}(${2:args}) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Insert an async function"
   },
   /*
-   * 🚧 - Object
+   * Objects & Arrays
    */
   "destructure object": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "deso",
     "body": [
-      "const { ${2} } = ${1:object}"
+      "const { ${2:value} } = ${1:object}"
     ],
-    "description": "destructure object"
+    "description": "Destructure an object"
   },
   "destructure array": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "desa",
     "body": [
-      "const [${2}] = ${1:array}"
+      "const [${2:value}] = ${1:array}"
     ],
-    "description": "destructure array"
+    "description": "Destructure an array"
   },
   /*
-   * ➰ - Iterables
+   * Iterables
    */
   "forEach loop": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "fe",
     "body": [
-      "${1}.forEach((${2:item}) => {",
+      "${1:items}.forEach((${2:item}) => {",
       "\t${0}",
       "})"
     ],
-    "description": "forEach loop"
+    "description": "Insert a forEach loop"
   },
-  "map": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "map callback": {
     "prefix": "map",
     "body": [
-      "${1}.map((${2:item}) => {",
+      "${1:items}.map((${2:item}) => {",
       "\t${0}",
       "})"
     ],
-    "description": "map"
+    "description": "Insert a map callback"
   },
-  "reduce": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "reduce callback": {
     "prefix": "reduce",
     "body": [
-      "${1}.reduce((${2:previous}, ${3:current}) => {",
-      "\t${0}",
-      "}${4:, initial})"
+      "${1:items}.reduce((${2:previous}, ${3:current}) => {",
+      "\t${4}",
+      "\treturn ${0:previous}",
+      "}, ${5:initialValue})"
     ],
-    "description": "reduce"
+    "description": "Insert a reduce callback"
   },
-  "filter": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "filter callback": {
     "prefix": "filter",
     "body": [
-      "${1}.filter(${2:item} => {",
+      "${1:items}.filter((${2:item}) => {",
       "\t${0}",
       "})"
     ],
-    "description": "filter"
+    "description": "Insert a filter callback"
   },
-  "find": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "find callback": {
     "prefix": "find",
     "body": [
-      "${1}.find(${2:item} => {",
+      "${1:items}.find((${2:item}) => {",
       "\t${0}",
       "})"
     ],
-    "description": "find"
+    "description": "Insert a find callback"
   },
   /*
-   * 💱 - Returning values
+   * Return Values
    */
-  "return": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "return statement": {
     "prefix": "r",
     "body": [
-      "return ${0}"
+      "return ${0:value}"
     ],
-    "description": "return"
+    "description": "Insert a return statement"
   },
   /*
-   * 📚 - Modules
+   * Modules
    */
   "export default": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "exd",
     "body": [
-      "export default ${0}"
+      "export default ${0:value}"
     ],
-    "description": "export default"
+    "description": "Insert an export default statement"
   },
-  "import module": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "import named module": {
     "prefix": "imp",
     "body": [
-      "import { ${0:moduleName} } from '${1:module}'"
+      "import { ${1:moduleName} } from '${0:module}'"
     ],
-    "description": "import module"
+    "description": "Insert a named import"
   },
-  "import module as": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+  "import default module": {
     "prefix": "imd",
     "body": [
       "import ${1:moduleName} from '${0:module}'"
     ],
-    "description": "import module as"
+    "description": "Insert a default import"
   },
   "import react": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "imr",
     "body": [
       "import React from 'react'"
     ],
-    "description": "import react"
+    "description": "Insert a React import"
   },
   "import css": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "imcss",
+    "prefix": [
+      "imcss",
+      "impcss"
+    ],
     "body": [
       "import './${0:styles}.css'"
     ],
-    "description": "import css module"
+    "description": "Insert a CSS import"
   },
   "import css module": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "imcssmd",
+    "prefix": [
+      "imcssmd",
+      "impcssmd"
+    ],
     "body": [
       "import styles from './${0:styles}.module.css'"
     ],
-    "description": "import css module"
+    "description": "Insert a CSS module import"
   },
   /*
-   * 💻 - Console
+   * Console
    */
   "console.log": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "cl",
     "body": [
-      "console.log(${0})"
+      "console.log(${0:value})"
     ],
-    "description": "console.log"
+    "description": "Insert a console.log call"
   },
   "console.error": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ce",
     "body": [
-      "console.error(${0})"
+      "console.error(${0:error})"
     ],
-    "description": "console.error"
+    "description": "Insert a console.error call"
   },
   "console.warn": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "cw",
     "body": [
-      "console.warn(${0})"
+      "console.warn(${0:value})"
     ],
-    "description": "console.warn"
+    "description": "Insert a console.warn call"
   },
   "console.table": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ct",
     "body": [
-      "console.table(${0})"
+      "console.table(${0:value})"
     ],
-    "description": "console.table (It is not very used)"
+    "description": "Insert a console.table call"
   },
   /*
-   * ⌚ - Timers
+   * Timers
    */
   "setTimeout": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "st",
     "body": [
       "setTimeout(() => {",
       "\t${0}",
       "}, ${1:delay})"
     ],
-    "description": "setTimeout"
+    "description": "Insert a setTimeout call"
   },
   "setInterval": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "si",
     "body": [
       "setInterval(() => {",
       "\t${0}",
       "}, ${1:delay})"
     ],
-    "description": "setInterval"
+    "description": "Insert a setInterval call"
   },
   "setImmediate": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "sim",
     "body": [
       "setImmediate(() => {",
       "\t${0}",
       "})"
     ],
-    "description": "setImmediate"
+    "description": "Insert a setImmediate call"
   }
 }

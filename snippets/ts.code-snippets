@@ -1,35 +1,46 @@
 {
   /*
-   * 🟦 - TypeScript
+   * TypeScript
    */
-  "Type declaration": {
+  "type declaration": {
     "prefix": "tst",
-    "scope": "typescript,typescriptreact",
     "body": [
       "type ${1:Name} = {",
-      "\t$0",
+      "\t${0}",
       "}"
     ],
-    "description": "type declaration"
+    "description": "Insert a type declaration"
   },
-  "Interface declaration": {
+  "interface declaration": {
     "prefix": "tsi",
-    "scope": "typescript,typescriptreact",
     "body": [
       "interface ${1:Name} {",
-      "\t$0",
+      "\t${0}",
       "}"
     ],
-    "description": "interface declaration"
+    "description": "Insert an interface declaration"
   },
-  "Enum declaration": {
+  "enum declaration": {
     "prefix": "tsen",
-    "scope": "typescript,typescriptreact",
     "body": [
       "enum ${1:Name} {",
-      "\t$0",
+      "\t${0}",
       "}"
     ],
-    "description": "enum declaration"
+    "description": "Insert an enum declaration"
+  },
+  "union type declaration": {
+    "prefix": "tsu",
+    "body": [
+      "type ${1:Name} = ${2:TypeA} | ${0:TypeB}"
+    ],
+    "description": "Insert a union type declaration"
+  },
+  "record type declaration": {
+    "prefix": "tsrec",
+    "body": [
+      "type ${1:Name} = Record<${2:string}, ${0:unknown}>"
+    ],
+    "description": "Insert a Record type declaration"
   }
 }

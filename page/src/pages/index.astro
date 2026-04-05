@@ -1,0 +1,71 @@
+---
+import Image from "astro/components/Image.astro";
+import SnippetSimulator from "../components/SnippetSimulator.astro";
+import { snippetItems } from "../data/snippets";
+import CodeIcon from "../assets/icons/CodeIcon.svg";
+import DownloadIcon from "../assets/icons/DownloadIcon.svg";
+import GithubIcon from "../assets/icons/Github.svg";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="React, TypeScript & JavaScript Snippets"
+  description="A focused landing page for the VS Code extension with a full snippet catalog."
+>
+  <main class="page-shell">
+    <section class="hero-grid hero-screen">
+      <div class="hero-copy">
+        <p class="eyebrow flex gap-2 items-center">
+          <CodeIcon /> EXTENSION
+        </p>
+        <h1 class="hero-title">
+          WRITE LESS - <br />
+          DO MORE +
+        </h1>
+        <p class="hero-body">
+          A refined snippet pack for React, TypeScript, and JavaScript.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="primary-link flex gap-2 items-center"
+            href="https://marketplace.visualstudio.com/items?itemName=wts-dev.wts-react-js-snippets"
+            target="_blank"
+            rel="noreferrer"
+          >
+            INSTALL EXTENSION <DownloadIcon />
+          </a>
+          <a
+            class="secondary-link flex gap-2 items-center"
+            href="https://github.com/withoutnicks/react-and-js-snippets"
+            target="_blank"
+            rel="noreferrer"
+          >
+            OPEN REPOSITORY <GithubIcon />
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-panel dot-grid">
+        <div class="label-row mb-auto">
+          <span class="label-chip">LOGO APP</span>
+          <span class="micro-copy">WTNKS / 2026</span>
+        </div>
+
+        <div class="hero-metric mb-auto">
+          <Image
+            src="/logo-without-bg.png"
+            width={300}
+            height={300}
+            alt="WTS Logo"
+            class={"mx-auto "}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <SnippetSimulator items={snippetItems} />
+    </section>
+  </main>
+</BaseLayout>

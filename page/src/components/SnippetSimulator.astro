@@ -1,0 +1,157 @@
+---
+import type { SnippetFocus, SnippetItem } from "../data/snippets";
+import AllIcon from "../assets/icons/AllIcon.svg";
+import GlobalIcon from "../assets/icons/GlobalIcon.svg";
+import ReactIcon from "../assets/icons/ReactIcon.svg";
+import TypeScriptIcon from "../assets/icons/TypescriptIcon.svg";
+import { Code } from "astro:components";
+
+type Props = {
+  items: SnippetItem[];
+};
+
+const { items } = Astro.props;
+
+const filters: Array<{
+  label: string;
+  value: "all" | SnippetFocus;
+  icon: typeof AllIcon;
+}> = [
+  { label: "All", value: "all", icon: AllIcon },
+  { label: "TS", value: "ts", icon: TypeScriptIcon },
+  { label: "React", value: "react", icon: ReactIcon },
+  { label: "Global", value: "global", icon: GlobalIcon },
+];
+
+const focusIconMap = {
+  global: GlobalIcon,
+  react: ReactIcon,
+  ts: TypeScriptIcon,
+} satisfies Record<SnippetFocus, typeof AllIcon>;
+
+function resolveSnippet(rawCode: SnippetItem["result"]) {
+  return rawCode
+    .replace(/\$\{\d+\/.*?\/.*?\/(.*?)\}/g, "")
+    .replace(/\$\{TM_FILENAME_BASE[^]*\}/g, "Componente")
+    .replace(/\$\{\d+:?([^}]*)\}/g, "$1")
+    .replace(/\$\d+/g, "");
+}
+---
+
+<section class="catalog-shell">
+  <div class="catalog-toolbar">
+    <div>
+      <p class="eyebrow">COMPLETE LIST:</p>
+      <h2 class="catalog-title">Every snippet, one table.</h2>
+    </div>
+
+    <div class="tab-row" role="tablist" aria-label="Focus filters">
+      {
+        filters.map((filter) => {
+          const Icon = filter.icon;
+
+          return (
+            <button
+              type="button"
+              class={`tab-button${filter.value === "all" ? " is-active" : ""}`}
+              data-filter={filter.value}
+              data-filter-button
+              aria-pressed={filter.value === "all" ? "true" : "false"}
+            >
+              <Icon class="focus-icon" aria-hidden="true" />
+              {filter.label}
+            </button>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="catalog-table-shell">
+    <div class="catalog-table-head" role="row">
+      <span role="columnheader">Prefix</span>
+      <span role="columnheader">Action</span>
+      <span role="columnheader">Result</span>
+      <span role="columnheader">Focus</span>
+    </div>
+
+    <div class="catalog-table-body" role="rowgroup" data-catalog-body>
+      {
+        items.map((item) => {
+          const Icon = focusIconMap[item.focus];
+
+          return (
+            <article class="catalog-row" data-focus={item.focus} role="row">
+              <div class="catalog-prefix" role="cell">
+                <strong>{item.prefix}</strong>
+                {item.prefixes.length > 1 ? (
+                  <span class="catalog-aliases">
+                    {item.prefixes.slice(1).join(" / ")}
+                  </span>
+                ) : null}
+              </div>
+
+              <div class="catalog-action" role="cell">
+                <strong>{item.action}</strong>
+                <span>{item.description}</span>
+              </div>
+
+              <div class="catalog-result" role="cell">
+                <Code
+                  code={resolveSnippet(item.result)}
+                  lang="ts"
+                  theme="dark-plus"
+                />
+              </div>
+
+              <div class="catalog-focus" role="cell">
+                <span class={`focus-pill is-${item.focus}`}>
+                  <Icon class="focus-icon" aria-hidden="true" />
+                  {item.focus}
+                </span>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="catalog-empty" data-empty-state hidden>
+    No snippets in this focus yet.
+  </div>
+</section>
+
+<script type="module">
+  const buttons = Array.from(document.querySelectorAll("[data-filter-button]"));
+  const rows = Array.from(document.querySelectorAll("[data-focus]"));
+  const emptyState = document.querySelector("[data-empty-state]");
+
+  const setFilter = (focus) => {
+    let visibleCount = 0;
+
+    for (const button of buttons) {
+      const isActive = button.dataset.filter === focus;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    }
+
+    for (const row of rows) {
+      const isVisible = focus === "all" || row.dataset.focus === focus;
+      row.toggleAttribute("hidden", !isVisible);
+      if (isVisible) visibleCount += 1;
+    }
+
+    if (emptyState) {
+      emptyState.toggleAttribute("hidden", visibleCount > 0);
+    }
+  };
+
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      setFilter(button.dataset.filter ?? "all");
+    });
+  }
+
+  setFilter("all");
+</script>

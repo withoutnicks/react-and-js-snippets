@@ -1,507 +1,335 @@
-# 🏂🏻 - React and Javascript Snippets
+# React, TypeScript & JavaScript Snippets
 
-> Uses **single quotes** and **no semicolons** by default
+> Uses **single quotes** and **no semicolons** by default.
 
-Boost your productivity with a clean and modern set of **snippets** for:
+Curated VS Code snippets for JavaScript, TypeScript, React, and modern hook-heavy workflows.
 
-- ![JavaScript Badge](https://img.shields.io/badge/JavaScript-fff?logo=javascript&logoColor=#fef08a&style=flat)
-- ![TypeScript Badge](https://img.shields.io/badge/TypeScript-fff?logo=typescript&logoColor=#3b82f6&style=flat)
-- ![React Badge](https://img.shields.io/badge/React-fff?logo=react&logoColor=#0ea5e9&style=flat)
+- JavaScript utilities and control flow
+- TypeScript declarations and utility types
+- React components, hooks, lazy loading, and typed patterns
 
+## What Changed
 
-## Snippets Index
+This version standardizes the snippet collection around a few rules:
 
-- [Components](#components)
-- [Hooks](#hooks)
-- [Functions](#functions)
-- [Object](#object)
-- [Types](#types)
-- [Utilities](#utilities)
-- ...
+- consistent descriptions and placeholder order
+- aliases where existing prefixes were worth preserving
+- React snippets available in `.js` and `.ts` files when they make sense
+- cleaner separation between global, TypeScript, and React-focused snippets
 
----
+## Inventory
 
-### Utilities
+Status key:
 
-#### `l` - Let Statement
+- `stable`: existing snippet kept as-is or with minor polish
+- `updated`: existing prefix kept, expansion or docs improved
+- `alias`: existing prefix retained and paired with a clearer alias
+- `new`: new snippet added in the current pass
 
-```javascript
+| Area | Prefixes | Status | Notes |
+| --- | --- | --- | --- |
+| Global utils | `l`, `l=`, `dl=`, `dco=` | stable | Same intent, cleaner placeholders and descriptions |
+| Global const | `co`, `co=` | updated | `co` now expands to a valid assignment instead of an invalid const declaration |
+| Control flow | `if`, `el`, `ifel`, `elif`, `ter`, `tc`, `tf`, `tcf`, `sw` | updated | Better tab order and default placeholder names |
+| Functions | `arrow`, `f`, `fn`, `afb` | stable | Naming and placeholder cleanup |
+| Functions | `afn` | new | Async function snippet |
+| Objects & arrays | `deso`, `desa` | stable | Documentation aligned with output |
+| Iterables | `fe`, `map`, `reduce`, `filter`, `find` | updated | `reduce` now includes a return and explicit initial value |
+| Modules | `imp`, `imd`, `imr`, `exd` | stable | Named/default import wording standardized |
+| CSS imports | `imcss`, `impcss`, `imcssmd`, `impcssmd` | alias | Short prefixes preserved and README-friendly aliases added |
+| Console & timers | `cl`, `ce`, `cw`, `ct`, `st`, `si`, `sim` | stable | Descriptions standardized |
+| TypeScript | `tst`, `tsi`, `tsen` | stable | Existing declarations preserved |
+| TypeScript | `tsu`, `tsrec` | new | Union and `Record` helpers |
+| React imports | `imt`, `impt` | alias | PropTypes import now has a clearer alias |
+| React components | `rf`, `rfd`, `ra`, `rad`, `tsrf`, `tsrfd`, `tsra`, `tsrad` | updated | Consistent component shapes and file-name-based component names |
+| React components | `rfc`, `rfcd`, `rafc`, `rafcd`, `tsfc`, `tsfcd`, `tsafc`, `tsafcd` | new | Clearer aliases for component-generation snippets |
+| React hooks | `us`, `useState`, `usl`, `useStateLazy`, `ured`, `useReducer`, `ue`, `useEffect`, `ucx`, `useContext`, `uc`, `useCallback`, `um`, `useMemo`, `uref`, `useRef`, `uid`, `useId` | updated | Existing hooks standardized and documented |
+| React hooks | `ule`, `useLayoutEffect`, `utr`, `useTransition`, `udv`, `useDeferredValue`, `uee`, `useEffectEvent` | new | Modern React coverage added |
+| React utilities | `lazy` | updated | Lazy import documented and available in `.js`, `.ts`, `.jsx`, `.tsx` |
+
+## Snippets
+
+### Global
+
+#### `l`
+
+```js
 let name
 ```
 
-#### `l=` - Let Assignment
+#### `l=`
 
-```javascript
+```js
 let name = value
 ```
 
-#### `dl=` - Destructuring Let Assignment
+#### `co` or `co=`
 
-```javascript
-let { name } = value
-```
-
-#### `co` - Const Statement
-
-```javascript
-const name
-```
-
-#### `co=` - Const Assignment
-
-```javascript
+```js
 const name = value
 ```
 
-#### `dco=` - Destructuring Const Assignment
+#### `dl=`
 
-```javascript
+```js
+let { name } = value
+```
+
+#### `dco=`
+
+```js
 const { name } = value
 ```
 
 ### Control
 
-#### `if` - If Statement
+#### `if`
 
-```javascript
+```js
 if (condition) {
-  // your code
+  // code
 }
 ```
 
-#### `el` - Else Statement
+#### `ifel`
 
-```javascript
-else {
- // your code
-}
-```
-
-#### `ifel` - If/Else Statement
-
-```javascript
+```js
 if (condition) {
-  // your code
+  // code
 } else {
-  // your code
+  // code
 }
 ```
 
-#### `elif` - Else If Statement
+#### `tc`
 
-```javascript
-else if (condition) {
- //your code
-}
-```
-
-#### `ter` - Ternary Operator
-
-```javascript
-condition ? expression : expression
-```
-
-#### `tc` - Try/Catch
-
-```javascript
+```js
 try {
-  //your code
-} catch (err) {
-  //your code
+  // code
+} catch (error) {
+  // code
 }
 ```
 
-#### `tf` - Try/Finally
+#### `sw`
 
-```javascript
-try {
-  //your code
-} finally {
-  //your code
-}
-```
-
-#### `tcf` - Try/Catch/Finally
-
-```javascript
-try {
-  //your code
-} catch (err) {
-  //your code
-} finally {
-  //your code
-}
-```
-
-#### `sw` - Switch Case
-
-```javascript
-switch (expr) {
-  case value:
-    //your code
+```js
+switch (value) {
+  case caseValue:
     break
   default:
-  //your code
 }
 ```
 
 ### Functions
 
-#### `arrow` - Arrow Function
+#### `arrow`
 
-```javascript
+```js
 const name = (args) => {
-  //your code
+  // code
 }
 ```
 
-#### `f` - Anonymous Function
+#### `fn`
 
-```javascript
-function (arguments) {
-  //your code
+```js
+function name(args) {
+  // code
 }
 ```
 
-#### `fn` - Named Function
+#### `afn`
 
-```javascript
-function name(arguments) {
-  //your code
+```js
+async function name(args) {
+  // code
 }
-```
-
-#### `afb` - Arrow Function with Body
-
-```javascript
-;(arguments) => {
-  //your code
-}
-```
-
-### Objects
-
-#### `deso` - Destructure Object
-
-```javascript
-const { value } = object
-```
-
-#### `desa` - Destructure Array
-
-```javascript
-const [value] = array
-```
-
-### Iterables
-
-#### `fe` - forEach Loop
-
-```javascript
-array.forEach((item) => {
-  //your code
-})
-```
-
-#### `map` - Map
-
-```javascript
-array.map((item) => {
-  //your code
-})
-```
-
-#### `reduce` - Reduce
-
-```javascript
-array.reduce((previous, current) => {
-  //your code
-}, initial)
-```
-
-#### `filter` - Filter
-
-```javascript
-array.filter((item) => {
-  //your code
-})
-```
-
-#### `find` - Find
-
-```javascript
-array.find((item) => {
-  //your code
-})
-```
-
-### Returning values
-
-#### `r` - Return
-
-```javascript
-return value
 ```
 
 ### Modules
 
-#### `exd` - Export Default
+#### `imp`
 
-```javascript
-export default value
+```js
+import { moduleName } from 'module'
 ```
 
-#### `imp` - Import Module
+#### `imd`
 
-```javascript
-import { moduleName } from "module"
+```js
+import moduleName from 'module'
 ```
 
-#### `imd` - Import Module As
+#### `imcss` or `impcss`
 
-```javascript
-import moduleName from "module"
+```js
+import './styles.css'
 ```
 
-#### `imr` - Import React
+#### `imcssmd` or `impcssmd`
 
-```javascript
-import React from "react"
+```js
+import styles from './styles.module.css'
 ```
 
-#### `impcss` - Import CSS
+### TypeScript
 
-```javascript
-import "./styles.css"
-```
+#### `tst`
 
-#### `impcssmd` - Import CSS Module
-
-```javascript
-import styles from "./styles.module.css"
-```
-
-### Console
-
-#### `cl` - Console.log
-
-```javascript
-console.log(value)
-```
-
-#### `ce` - Console.error
-
-```javascript
-console.error(value)
-```
-
-#### `cw` - Console.warn
-
-```javascript
-console.warn(value)
-```
-
-#### `ct` - Console.table
-
-```javascript
-console.table(value)
-```
-
-### Timers
-
-#### `st` - setTimeout
-
-```javascript
-setTimeout(() => {
-  //your code
-}, delay)
-```
-
-#### `si` - setInterval
-
-```javascript
-setInterval(() => {
-  //your code
-}, delay)
-```
-
-#### `sim` - setImmediate
-
-```javascript
-setImmediate(() => {
-  //your code
-})
-```
-
-### Types
-
-#### `imt` - Import PropTypes
-
-```javascript
-import PropTypes from "prop-types"
-```
-
-### `tst`- Type declaration
-
-```typescript
+```ts
 type Name = {
-  // your code
+  // fields
 }
 ```
 
-### `tsi`- Interface declaration
+#### `tsi`
 
-```typescript
+```ts
 interface Name {
-  // your code
+  // fields
 }
 ```
 
-### `tsen`- Enum declaration
+#### `tsen`
 
-```typescript
+```ts
 enum Name {
-  // your code
+  // values
 }
 ```
 
-### Components
+#### `tsu`
 
-#### `rf` - React Functional Component Export
+```ts
+type Name = TypeA | TypeB
+```
 
-```javascript
-export function Component () {
-  return <>{/* your code */}</>
+#### `tsrec`
+
+```ts
+type Name = Record<string, unknown>
+```
+
+### React Components
+
+#### `rf` or `rfc`
+
+```tsx
+export function Component() {
+  return <div>Component</div>
 }
 ```
 
-#### `rfd` - React Functional Component Default Export
+#### `rfd` or `rfcd`
 
-```javascript
-function Component () {
-  return <>{/* your code */}</>
+```tsx
+function Component() {
+  return <div>Component</div>
 }
 
 export default Component
 ```
 
-#### `ra` - React Arrow Functional Component Export
+#### `ra` or `rafc`
 
-```javascript
+```tsx
 export const Component = () => {
-  return <>{/* your code */}</>
+  return <div>Component</div>
 }
 ```
 
-#### `rad` - React Arrow Functional Component Default Export
+#### `tsra` or `tsafc`
 
-```javascript
-const Component = () => {
-  return <>{/* your code */}</>
+```tsx
+interface Props {
+  title: string
 }
 
-export default Component
-```
-
-#### `tsra` - Typescript React Arrow Functional Component Export
-
-```typescript
-interface Props {}
-
-const Component = ({}: Props) => {
-  return <>{/* your code */}</>
+export const Component = ({ title }: Props) => {
+  return <div>{title}</div>
 }
-
-export default Component
 ```
 
-#### `tsrad` - Typescript React Arrow Functional Component Default Export
+### React Hooks
 
-```typescript
-interface Props {}
+#### `us` or `useState`
 
-const Component = ({}: Props) => {
-  return <>{/* your code */}</>
-}
-
-export default Component
-```
-
-#### `lazy` - Lazy Import Snippet
-
-```javascript
-const Component = lazy(() => import("./Component"))
-```
-
-### Hooks
-
-#### `us` or `useState` Snippet
-
-```javascript
+```ts
 const [state, setState] = useState(initialState)
 ```
 
-#### `usl` or `useStateLazy` Snippet
+#### `ue` or `useEffect`
 
-```javascript
-const [state, setState] = useState(() => fn)
-```
-
-#### `ured` or `useReducer` Snippet
-
-```javascript
-const [state, dispatch] = useReducer(reducer, initialState)
-```
-
-#### `ue` or `useEffect` Snippet
-
-```javascript
+```ts
 useEffect(() => {
-  // your code
+  // code
 }, [])
 ```
 
-#### `ucx` or `useContext` Snippet
+#### `ule` or `useLayoutEffect`
 
-```javascript
-const context = useContext(Context)
+```ts
+useLayoutEffect(() => {
+  // code
+}, [])
 ```
 
-#### `uc` or `useCallback` Snippet
+#### `utr` or `useTransition`
 
-```javascript
-const memoizedCallback = useCallback(callbackFn, [])
+```ts
+const [isPending, startTransition] = useTransition()
 ```
 
-#### `um` or `useMemo` Snippet
+#### `udv` or `useDeferredValue`
 
-```javascript
-const memoizedValue = useMemo(() => value, [])
+```ts
+const deferredValue = useDeferredValue(value)
 ```
 
-#### `uref` or `useRef` Snippet
+#### `uee` or `useEffectEvent`
 
-```javascript
-const ref = useRef(initialValue)
+```ts
+const handleEvent = useEffectEvent((event) => {
+  // code
+})
 ```
 
-#### `uid` or `useId` Snippet
+### React Utility
 
-```javascript
-const id = useId()
+#### `lazy`
+
+```ts
+const Component = lazy(() => import('./Component'))
 ```
 
-## 🙌 Credits
+## Landing Page Workspace
+
+The repo now includes a `page/` workspace for a polished extension landing page.
+
+Stack:
+
+- Astro
+- Tailwind CSS
+- Preact islands for small interactive pieces
+
+Suggested commands:
+
+```bash
+cd page
+npm install
+npm run dev
+```
+
+## Install
+
+Search **React, Typescript & Javascript Snippets** in the VS Code Marketplace or open:
+
+`https://marketplace.visualstudio.com/items?itemName=wts-dev.wts-react-js-snippets`
+
+## Credits
 
 Inspired by:
 
-- 💛 [@nathanchapman](https://github.com/nathanchapman/vscode-javascript-snippets)
-- 💙 [@ymulenll](https://github.com/ymulenll/react17plus-snippets)
-
----
-
-## 📌 Install
-
-Search **“React, TypeScript & Next.js Snippets”** in the VS Code marketplace or [click here](https://marketplace.visualstudio.com/).
-
----
+- [@nathanchapman](https://github.com/nathanchapman/vscode-javascript-snippets)
+- [@ymulenll](https://github.com/ymulenll/react17plus-snippets)
